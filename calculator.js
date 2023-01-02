@@ -14,3 +14,13 @@ function divide(a,b){
 function multiply(a,b){
     return a*b;
 }
+
+//Operator
+function operation(operator){
+    return operator === '+' ? add(a,b) :
+    operator === '-' ? subtract(a,b) :
+    operator === '*' ? multiply(a,b) :
+    operator === '/' ? divide(a,b) : 
+    "Not a valid Operator";
+}
+
