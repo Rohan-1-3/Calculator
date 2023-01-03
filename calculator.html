@@ -10,7 +10,7 @@
 <div class= "formstyle">   
       
     <!-- This input box shows the button pressed by the user in calculator. -->  
- <div id="calc" name="answer" style="text-align: end; font-size: 50px; margin: 1px;">0</div> <br> <br>  
+ <div id="calc" name="answer" style="text-align: end; font-size: 50px; margin: 1px;"></div> <br> <br>  
   <!-- Display the calculator button on the screen. -->  
   <!-- onclick() function display the number prsses by the user. -->  
   <input type = "button" value = "1" >  
@@ -31,14 +31,14 @@
   <button class="button" id="*">*</button>
   <br> <br>  
     
-  <input type = "button" value = "/" >  
+  <button class="button" id="/">/</button>  
   <input type = "button" value = "0" >  
     <input type = "button" value = "." >  
     <!-- When we click on the '=' button, the onclick() shows the sum results on the calculator screen. -->  
-  <button id="=">=</button>
+  <button id="=" onclick="operation(string)">=</button>
   <br>   
   <!-- Display the Cancel button and erase all data entered by the user. -->  
-    <button onclick="clearButton()" class="clear">Clear All</button>
+    <button onclick="location.reload()" class="clear">Clear All</button>
   <br>   
     
 </div>  
