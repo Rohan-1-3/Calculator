@@ -15,7 +15,13 @@ function subtract(a,b){
 }
 
 function divide(a,b){
-    return parseInt(a)/parseInt(b);
+    if(b=== '0'){
+        alert("A number cannot be divided by 0");
+        clearAll();
+    }
+    else{
+        return parseInt(a)/parseInt(b);
+    }
 }
 
 function multiply(a,b){
@@ -98,6 +104,17 @@ function clearAll(){
     divContent.textContent = '';
 
 }
+//deletes last number of the display
+function deleteButton(){
+    const string = divContent.textContent.split('');
+    var newString = [];
+    for(let i=0;i<string.length-1;i++){
+        newString+=string[i];
+    }
+    divContent.textContent = newString
+}
+
+
 
 getNumberValues();
 getOperatorValues();
