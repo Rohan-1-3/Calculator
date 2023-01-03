@@ -24,3 +24,24 @@ function operation(operator){
     "Not a valid Operator";
 }
 
+const para = document.querySelector('p');
+const numberValues = document.querySelectorAll('input');
+// const operatorValues = document.querySelectorAll('button')
+
+function getOperatorValues(){
+
+}
+
+function clear(){
+    para.textContent = '1'
+}
+function getNumberValues(){
+    numberValues.forEach((numberValue)=>{
+        numberValue.addEventListener('click' , (e)=>{
+            para.textContent += e.target.value;
+        })
+    })
+} 
+getNumberValues();
+
+
