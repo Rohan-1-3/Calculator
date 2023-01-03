@@ -7,11 +7,11 @@ const divContent = document.getElementById('calc');
 const operatorValues = document.querySelectorAll('.button');
 
 function add(a,b){
-    return parseInt(a)+parseInt(b);
+    return (parseInt(a)+parseInt(b)).toFixed(2);
 }
 
 function subtract(a,b){
-    return parseInt(a)-parseInt(b);
+    return (parseInt(a)-parseInt(b)).toFixed(2);
 }
 
 function divide(a,b){
@@ -20,12 +20,12 @@ function divide(a,b){
         clearAll();
     }
     else{
-        return parseInt(a)/parseInt(b);
+        return (parseInt(a)/parseInt(b)).toFixed(2);
     }
 }
 
 function multiply(a,b){
-    return parseInt(a)*parseInt(b);
+    return (parseInt(a)*parseInt(b)).toFixed(2);
 }
 
 //Operator
