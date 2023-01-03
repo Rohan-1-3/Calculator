@@ -24,24 +24,30 @@ function operation(operator){
     "Not a valid Operator";
 }
 
-const para = document.querySelector('p');
 const numberValues = document.querySelectorAll('input');
-// const operatorValues = document.querySelectorAll('button')
+const divContent = document.getElementById('calc');
+const operatorValues = document.querySelectorAll('.button');
 
 function getOperatorValues(){
-
+    operatorValues.forEach((operatorValue)=>{
+        operatorValue.addEventListener('click', (e)=>{
+            console.log(e.target.id)
+        })
+    })
 }
 
-function clear(){
-    para.textContent = '1'
+function clearButton(){
+    divContent.textContent = '0'
 }
 function getNumberValues(){
     numberValues.forEach((numberValue)=>{
         numberValue.addEventListener('click' , (e)=>{
-            para.textContent += e.target.value;
+            divContent.textContent === '0' ? divContent.textContent = e.target.value :
+            divContent.textContent += e.target.value;
         })
     })
 } 
 getNumberValues();
+getOperatorValues();
 
 

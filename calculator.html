@@ -7,44 +7,40 @@
 </head>  
 <body>  
 <h1> Calculator Program in JavaScript </h1>  
-<div class= "formstyle">  
-<form name = "form1">  
+<div class= "formstyle">   
       
     <!-- This input box shows the button pressed by the user in calculator. -->  
- <div id="calc" name="answer">
-
-    <p style="text-align: end;">0</p></div> <br> <br>  
+ <div id="calc" name="answer" style="text-align: end; font-size: 50px; margin: 1px;">0</div> <br> <br>  
   <!-- Display the calculator button on the screen. -->  
   <!-- onclick() function display the number prsses by the user. -->  
   <input type = "button" value = "1" >  
   <input type = "button" value = "2" >  
   <input type = "button" value = "3" >  
-   <button id="+">+</button> 
+   <button class="button" id="+">+</button> 
   <br> <br>  
     
   <input type = "button" value = "4" >  
   <input type = "button" value = "5" >  
   <input type = "button" value = "6" >  
-  <button id="-">-</button> 
+  <button id="-" class="button">-</button> 
   <br> <br>  
     
   <input type = "button" value = "7" >  
   <input type = "button" value = "8" >  
   <input type = "button" value = "9" >  
-  <button id="*">*</button>
+  <button class="button" id="*">*</button>
   <br> <br>  
     
   <input type = "button" value = "/" >  
   <input type = "button" value = "0" >  
     <input type = "button" value = "." >  
     <!-- When we click on the '=' button, the onclick() shows the sum results on the calculator screen. -->  
-  <input type = "button" value = "=">  
+  <button id="=">=</button>
   <br>   
   <!-- Display the Cancel button and erase all data entered by the user. -->  
-  <button onclick="clear()" id="clear">Clear All</button>  
+    <button onclick="clearButton()" class="clear">Clear All</button>
   <br>   
     
-</form>  
 </div>  
 <script src="calculator.js"></script>
 </body>  
