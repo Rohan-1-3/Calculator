@@ -45,15 +45,21 @@ function operation(operator){
 function getOperatorValues(){
     operatorValues.forEach((operatorValue)=>{
         operatorValue.addEventListener('click', (e)=>{
-            operator = e.target.id;
 
-            if(a !== 0){
+            if(a === 0){
                 a = divContent.textContent;
-                divContent.textContent = '';
+                console.log(a);
+                divContent.textContent = operator;
             }
-            else {
-                return 0;
+            else if (b === 0){ 
+                    b = divContent.textContent;
+                    console.log(b)
+                    a = operation(operator);
+                    console.log(a);
+                    b = 0;
+                    divContent.textContent = a
             }
+            operator = e.target.id;
         })
     })
 }
@@ -61,21 +67,28 @@ function getOperatorValues(){
 function getNumberValues(){
     numberValues.forEach((numberValue)=>{
         numberValue.addEventListener('click' , (e)=>{
-            divContent.textContent === '0'? divContent.textContent = e.target.value :
+            divContent.textContent === '0' || divContent.textContent === '+' || 
+            divContent.textContent === '-' || divContent.textContent === '/' ||
+            divContent.textContent === '*' || divContent.textContent === `${a}` ? divContent.textContent = e.target.value :
             divContent.textContent += e.target.value;
-            if(a === 0){
-                a = divContent.textContent;
-                // console.log("i am a=" +a);
-            }
-            else if(b === 0){
-                b = divContent.textContent;
-                a = operation(operator);
-                b = 0;
-                divContent.textContent = a;
-            }
-
         })
     })
+}
+
+function equalButton(){
+    if(a === 0){
+        alert('No');
+    }
+    else if(b === 0){
+        b = divContent.textContent;
+        console.log(b)
+        a = operation(operator);
+        console.log(a);
+        b = 0;
+        divContent.textContent = a
+    }
+
+
 }
 
 getNumberValues();
