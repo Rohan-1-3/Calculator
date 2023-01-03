@@ -45,21 +45,23 @@ function operation(operator){
 function getOperatorValues(){
     operatorValues.forEach((operatorValue)=>{
         operatorValue.addEventListener('click', (e)=>{
-
-            if(a === 0){
-                a = divContent.textContent;
-                console.log(a);
-                divContent.textContent = operator;
+            if(operator === '='){//getting operator after equal button
+                operator = e.target.id;
+                divContent.textContent = '';
             }
-            else if (b === 0){ 
-                    b = divContent.textContent;
-                    console.log(b)
-                    a = operation(operator);
-                    console.log(a);
-                    b = 0;
-                    divContent.textContent = a
+            else{//getting operator and operating
+                if(a === 0){
+                    a = divContent.textContent;
+                    divContent.textContent = operator;
+                }
+                else if (b === 0){ 
+                        b = divContent.textContent;
+                        a = operation(operator);
+                        b = 0;
+                        divContent.textContent = a
+                }
+                operator = e.target.id;
             }
-            operator = e.target.id;
         })
     })
 }
@@ -67,27 +69,33 @@ function getOperatorValues(){
 function getNumberValues(){
     numberValues.forEach((numberValue)=>{
         numberValue.addEventListener('click' , (e)=>{
-            divContent.textContent === '0' || divContent.textContent === '+' || 
-            divContent.textContent === '-' || divContent.textContent === '/' ||
-            divContent.textContent === '*' || divContent.textContent === `${a}` ? divContent.textContent = e.target.value :
+            divContent.textContent === '+' || divContent.textContent === '-' || 
+            divContent.textContent === '/' || divContent.textContent === '*' || 
+            divContent.textContent === `${a}` ? divContent.textContent = e.target.value :
             divContent.textContent += e.target.value;
         })
     })
 }
 
+//Equal button function
 function equalButton(){
     if(a === 0){
-        alert('No');
+        alert('No');//when no value is given
     }
     else if(b === 0){
         b = divContent.textContent;
-        console.log(b)
         a = operation(operator);
-        console.log(a);
         b = 0;
-        divContent.textContent = a
+        divContent.textContent = a;
+        operator = '=';
     }
-
+}
+//resetting everything to start
+function clearAll(){
+    a = 0;
+    b = 0;
+    operator = '';
+    divContent.textContent = '';
 
 }
 
