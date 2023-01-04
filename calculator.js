@@ -3,15 +3,17 @@ var a = 0;
 var b = 0;
 var operator = '';
 const numberValues = document.querySelectorAll('input');
-const divContent = document.getElementById('calc');
+const divContent = document.querySelector('p');
 const operatorValues = document.querySelectorAll('.button');
+var preDisplay = document.querySelector('span');
 
 function add(a,b){
-    return (parseInt(a)+parseInt(b)).toFixed(2);
+    return Math.round(((parseFloat(a)+parseFloat(b)) + Number.EPSILON) * 100) / 100;
+    // (parseFloat(a)+parseFloat(b)).toFixed(2);
 }
 
 function subtract(a,b){
-    return (parseInt(a)-parseInt(b)).toFixed(2);
+    return Math.round(((parseFloat(a)-parseFloat(b)) + Number.EPSILON) * 100) / 100;
 }
 
 function divide(a,b){
@@ -20,12 +22,13 @@ function divide(a,b){
         clearAll();
     }
     else{
-        return (parseInt(a)/parseInt(b)).toFixed(2);
+        return Math.round(((parseFloat(a)/parseFloat(b)) + Number.EPSILON) * 100) / 100;
+        // (parseFloat(a)/parseFloat(b)).toFixed(2);
     }
 }
 
 function multiply(a,b){
-    return (parseInt(a)*parseInt(b)).toFixed(2);
+    return Math.round(((parseFloat(a)*parseFloat(b)) + Number.EPSILON) * 100) / 100;
 }
 
 //Operator
@@ -54,19 +57,24 @@ function getOperatorValues(){
             if(operator === '='){//getting operator after equal button
                 operator = e.target.id;
                 divContent.textContent = '';
+                getPreDisplay();
             }
             else{//getting operator and operating
                 if(a === 0){
                     a = divContent.textContent;
                     divContent.textContent = operator;
+                    operator = e.target.id;
+                    getPreDisplay();
                 }
                 else if (b === 0){ 
                         b = divContent.textContent;
                         a = operation(operator);
                         b = 0;
-                        divContent.textContent = a
+                        divContent.textContent = a;
+                        operator = e.target.id;
+                        getPreDisplay();
                 }
-                operator = e.target.id;
+                
             }
         })
     })
@@ -94,6 +102,7 @@ function equalButton(){
         b = 0;
         divContent.textContent = a;
         operator = '=';
+        preDisplay.textContent = 0;
     }
 }
 //resetting everything to start
@@ -102,6 +111,7 @@ function clearAll(){
     b = 0;
     operator = '';
     divContent.textContent = '';
+    preDisplay.textContent = 0;
 
 }
 //deletes last number of the display
@@ -114,6 +124,9 @@ function deleteButton(){
     divContent.textContent = newString
 }
 
+function getPreDisplay(){
+    preDisplay.textContent = `${a} ${operator}` ;
+}
 
 
 getNumberValues();

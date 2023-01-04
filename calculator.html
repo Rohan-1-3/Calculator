@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>  
 <html lang = "en">  
 <head>  
@@ -8,44 +7,42 @@
 <body>  
 <h1> Calculator Program in JavaScript </h1>  
 <div class= "formstyle">   
-      
-    <!-- This input box shows the button pressed by the user in calculator. -->  
- <div id="calc" name="answer" style="text-align: end; font-size: 50px; margin: 1px;"></div> <br> <br>  
-  <!-- Display the calculator button on the screen. -->  
-  <!-- onclick() function display the number prsses by the user. -->  
+
+ <div id="calc" name="answer" style="font-size: 50px; margin: 1px;">
+  <span style="font-size: 20px;">0</span>
+  <p style="text-align: right;" class="calc"></p>
+</div><br>
+ 
+    <button onclick="clearAll()" class="clear">AC</button>
+    <button onclick="deleteButton()" class="clear">Delete</button>
+  <br>   
+
   <input type = "button" value = "1" >  
   <input type = "button" value = "2" >  
   <input type = "button" value = "3" >  
    <button class="button" id="+">+</button> 
-  <br> <br>  
+  <br>  
     
   <input type = "button" value = "4" >  
   <input type = "button" value = "5" >  
   <input type = "button" value = "6" >  
   <button id="-" class="button">-</button> 
-  <br> <br>  
+  <br>
     
   <input type = "button" value = "7" >  
   <input type = "button" value = "8" >  
   <input type = "button" value = "9" >  
   <button class="button" id="*">*</button>
-  <br> <br>  
-    
-  <button class="button" id="/">/</button>  
+  <br>  
+      
   <input type = "button" value = "0" >  
-    <input type = "button" value = "." >  
-    <!-- When we click on the '=' button, the onclick() shows the sum results on the calculator screen. -->  
-  <button id="=" onclick="equalButton()">=</button>
-  <br>   
-  <!-- Display the Cancel button and erase all data entered by the user. -->  
-    <button onclick="clearAll()" class="clear">Clear All</button>
-    <button onclick="deleteButton()">Delete</button>
-  <br>   
+  <input type = "button" value = "." >
+  <button class="button" id="/">/</button>  
+
+  <button id="=" class="buttonEqual" onclick="equalButton()">=</button>
+  
     
 </div>  
 <script src="calculator.js"></script>
 </body>  
 </html>  
-
-
-
