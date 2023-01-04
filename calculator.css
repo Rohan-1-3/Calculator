@@ -1,8 +1,8 @@
 h1 {  
     text-align: center;  
     padding: 23px;  
-    background-color: skyblue;  
-    color: white;  
+    color: black;  
+    font-weight: bolder;
     }  
   
 .clear{  
@@ -76,3 +76,7 @@ input:hover, button:hover{
     opacity: 70%;
 }
 
+footer{
+    text-align: center;
+    font-size: 30px;
+}
