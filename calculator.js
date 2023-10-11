@@ -1,11 +1,12 @@
-//Basic Operator Functions
-var a = 0;
-var b = 0;
-var operator = '';
-const numberValues = document.querySelectorAll('input');
-const divContent = document.querySelector('p');
-const operatorValues = document.querySelectorAll('.button');
-var preDisplay = document.querySelector('span');
+// Basic Operator Functions
+let a = 0;
+let b = 0;
+let operator = "";
+const numberValues = document.querySelectorAll("input");
+const divContent = document.querySelector(".calc-display");
+const operatorValues = document.querySelectorAll(".button");
+const preDisplay = document.querySelector(".preview");
+preDisplay.textContent = "0";
 
 function add(a,b){
     return Math.round(((parseFloat(a)+parseFloat(b)) + Number.EPSILON) * 100) / 100;
@@ -17,7 +18,7 @@ function subtract(a,b){
 }
 
 function divide(a,b){
-    if(b=== '0'){
+    if(b === "0"){
         alert("A number cannot be divided by 0");
         clearAll();
     }
@@ -31,42 +32,42 @@ function multiply(a,b){
     return Math.round(((parseFloat(a)*parseFloat(b)) + Number.EPSILON) * 100) / 100;
 }
 
-//Operator
-function operation(operator){ 
-    if(operator === '+'){
+// Operator
+function operation(operator){
+    if(operator === "+"){
        return add(a,b);
     }
-    else if(operator === '-'){
+    if(operator === "-"){
         return subtract(a,b);
     }
-    else if(operator === '*'){
+    if(operator === "*"){
         return multiply(a,b);
     }
-    else if(operator === '/'){
+    if(operator === "/"){
         return divide(a,b);
     }
-    else{
-        return;
-    }
-    
+
+
+
+
 }
 
 function getOperatorValues(){
     operatorValues.forEach((operatorValue)=>{
-        operatorValue.addEventListener('click', (e)=>{
-            if(operator === '='){//getting operator after equal button
+        operatorValue.addEventListener("click", (e)=>{
+            if(operator === "="){// getting operator after equal button
                 operator = e.target.id;
-                divContent.textContent = '';
+                divContent.textContent = "";
                 getPreDisplay();
             }
-            else{//getting operator and operating
+            else{// getting operator and operating
                 if(a === 0){
                     a = divContent.textContent;
                     divContent.textContent = operator;
                     operator = e.target.id;
                     getPreDisplay();
                 }
-                else if (b === 0){ 
+                else if (b === 0){
                         b = divContent.textContent;
                         a = operation(operator);
                         b = 0;
@@ -74,7 +75,7 @@ function getOperatorValues(){
                         operator = e.target.id;
                         getPreDisplay();
                 }
-                
+
             }
         })
     })
@@ -82,42 +83,42 @@ function getOperatorValues(){
 
 function getNumberValues(){
     numberValues.forEach((numberValue)=>{
-        numberValue.addEventListener('click' , (e)=>{
-            divContent.textContent === '+' || divContent.textContent === '-' || 
-            divContent.textContent === '/' || divContent.textContent === '*' || 
+        numberValue.addEventListener("click" , (e)=>{
+            divContent.textContent === "+" || divContent.textContent === "-" ||
+            divContent.textContent === "/" || divContent.textContent === "*" ||
             divContent.textContent === `${a}` ? divContent.textContent = e.target.value :
             divContent.textContent += e.target.value;
         })
     })
 }
 
-//Equal button function
+// Equal button function
 function equalButton(){
     if(a === 0){
-        alert('No');//when no value is given
+        alert("No");// when no value is given
     }
     else if(b === 0){
         b = divContent.textContent;
         a = operation(operator);
         b = 0;
         divContent.textContent = a;
-        operator = '=';
+        operator = "=";
         preDisplay.textContent = 0;
     }
 }
-//resetting everything to start
+// resetting everything to start
 function clearAll(){
     a = 0;
     b = 0;
-    operator = '';
-    divContent.textContent = '';
+    operator = "";
+    divContent.textContent = "";
     preDisplay.textContent = 0;
 
 }
-//deletes last number of the display
+// deletes last number of the display
 function deleteButton(){
-    const string = divContent.textContent.split('');
-    var newString = [];
+    const string = divContent.textContent.split("");
+    let newString = [];
     for(let i=0;i<string.length-1;i++){
         newString+=string[i];
     }
