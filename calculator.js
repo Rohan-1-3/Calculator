@@ -129,6 +129,11 @@ function getPreDisplay(){
     preDisplay.textContent = `${a} ${operator}` ;
 }
 
+const theme = document.querySelector(".theme");
+theme.addEventListener("click", ()=>{
+    document.body.classList.toggle("dark-theme");
+})
+
 
 getNumberValues();
 getOperatorValues();
